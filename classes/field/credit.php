@@ -38,7 +38,20 @@ class Caldera_Forms_Field_Credit {
 	 * @return string
 	 */
 	public function credit_card_number( $number ){
-		return  substr_replace($number, str_repeat('X', strlen( $number ) - 4), 0, strlen( $number ) - 4);
+    // Fix: Handle empty or non-string values
+    if ( empty( $number ) || ! is_string( $number ) ) {
+      return '';
+    }
+    $length = strlen( $number );
+
+    // If number is 4 characters or less, mask all characters
+    if ( $length <= 4 ) {
+      return str_repeat('X', $length);
+    }
+
+    // Replace all but last 4 with Xs
+    return str_repeat('X', $length - 4) . substr($number, -4);
+		//return  substr_replace($number, str_repeat('X', strlen( $number ) - 4), 0, strlen( $number ) - 4);
 	}
 
 	/**
@@ -53,6 +66,11 @@ class Caldera_Forms_Field_Credit {
 	 * @return string
 	 */
 	public function credit_card_cvc( $number ){
+    // Fix: Handle empty or non-string values
+    if ( empty( $number ) || ! is_string( $number ) ) {
+      return '';
+    }
+
 		return str_repeat('X', strlen( $number ) );
 	}
 
