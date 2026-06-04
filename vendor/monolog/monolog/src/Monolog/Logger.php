@@ -607,11 +607,11 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function log($level, $message, array $context = array())
+    public function log($level, $message, array $context = array()): void
     {
         $level = static::toMonologLevel($level);
 
-        return $this->addRecord($level, $message, $context);
+        $this->addRecord($level, $message, $context);
     }
 
     /**
@@ -623,9 +623,9 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function debug($message, array $context = array())
+    public function debug($message, array $context = array()): void
     {
-        return $this->addRecord(static::DEBUG, $message, $context);
+        $this->addRecord(static::DEBUG, $message, $context);
     }
 
     /**
@@ -637,9 +637,9 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function info($message, array $context = array())
+    public function info($message, array $context = array()): void
     {
-        return $this->addRecord(static::INFO, $message, $context);
+        $this->addRecord(static::INFO, $message, $context);
     }
 
     /**
@@ -651,9 +651,9 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function notice($message, array $context = array())
+    public function notice($message, array $context = array()): void
     {
-        return $this->addRecord(static::NOTICE, $message, $context);
+        $this->addRecord(static::NOTICE, $message, $context);
     }
 
     /**
@@ -679,9 +679,9 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function warning($message, array $context = array())
+    public function warning($message, array $context = array()): void
     {
-        return $this->addRecord(static::WARNING, $message, $context);
+        $this->addRecord(static::WARNING, $message, $context);
     }
 
     /**
@@ -707,9 +707,9 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function error($message, array $context = array())
+    public function error($message, array $context = array()): void
     {
-        return $this->addRecord(static::ERROR, $message, $context);
+        $this->addRecord(static::ERROR, $message, $context);
     }
 
     /**
@@ -735,9 +735,9 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function critical($message, array $context = array())
+    public function critical($message, array $context = array()): void
     {
-        return $this->addRecord(static::CRITICAL, $message, $context);
+        $this->addRecord(static::CRITICAL, $message, $context);
     }
 
     /**
@@ -749,9 +749,9 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function alert($message, array $context = array())
+    public function alert($message, array $context = array()): void
     {
-        return $this->addRecord(static::ALERT, $message, $context);
+        $this->addRecord(static::ALERT, $message, $context);
     }
 
     /**
@@ -777,9 +777,9 @@ class Logger implements LoggerInterface, ResettableInterface
      * @param  array  $context The log context
      * @return bool   Whether the record has been processed
      */
-    public function emergency($message, array $context = array())
+    public function emergency($message, array $context = array()): void
     {
-        return $this->addRecord(static::EMERGENCY, $message, $context);
+        $this->addRecord(static::EMERGENCY, $message, $context);
     }
 
     /**
