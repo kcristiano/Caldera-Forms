@@ -404,7 +404,7 @@ class hooks
 		if ( !is_object(container::get_instance()->get_tables()) ) {
 			\Caldera_Forms::check_tables();
 		}
-		\Inpsyde\Wonolog\bootstrap(new \calderawp\calderaforms\pro\log\handler());
+		// Wonolog bootstrap removed — psr/log 1.x conflicts with CiviCRM 6.15+ psr/log 3.x
 
 	}
 
