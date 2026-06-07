@@ -4,7 +4,6 @@
 namespace calderawp\calderaforms\pro\log;
 
 use calderawp\calderaforms\pro\container;
-use Monolog\Logger;
 
 /**
  * Class mail
@@ -79,7 +78,7 @@ class mail
 		container::get_instance()->get_logger()->send(
 			$message,
 			$data,
-			Logger::INFO
+			200
 		);
 	}
 

@@ -5,7 +5,6 @@ namespace calderawp\calderaforms\pro;
 
 use calderawp\calderaforms\pro\api\keys;
 use calderawp\calderaforms\pro\settings\form;
-use Monolog\Logger as Monolog;
 
 
 /**
@@ -80,7 +79,7 @@ class settings extends repository
 		if ( !empty($saved[ 'logLevel' ]) ) {
 			$settings->set_log_level($saved[ 'logLevel' ]);
 		} else {
-			$settings->set_log_level(Monolog::NOTICE);
+			$settings->set_log_level(250);
 		}
 
 		if ( !empty($saved[ 'plan' ]) ) {
@@ -311,7 +310,7 @@ class settings extends repository
 	}
 
 	/**
-	 * List all log levels from Monolog
+	 * List all log levels (Monolog 1.x constants, hardcoded to avoid psr/log dependency)
 	 *
 	 * @since 1.5.9
 	 *
@@ -319,7 +318,16 @@ class settings extends repository
 	 */
 	public function log_levels()
 	{
-		$levels = Monolog::getLevels();
+		$levels = [
+			'DEBUG'     => 100,
+			'INFO'      => 200,
+			'NOTICE'    => 250,
+			'WARNING'   => 300,
+			'ERROR'     => 400,
+			'CRITICAL'  => 500,
+			'ALERT'     => 550,
+			'EMERGENCY' => 600,
+		];
 		$all_levels = [];
 		$i = 0;
 		foreach ( $levels as $name => $number ) {
@@ -361,7 +369,7 @@ class settings extends repository
 	 */
 	public function get_log_level()
 	{
-		return $this->get('logLevel', Monolog::NOTICE);
+		return $this->get('logLevel', 250);
 	}
 
 	/**
