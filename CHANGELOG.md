@@ -1,5 +1,8 @@
 == Changelog ==
 
+= Caldera Forms 1.9.9 (June 7, 2026) Monologger fixes =
+* Disables monolog and wonolog from pro plugin checks.
+
 = Caldera Forms 1.9.8 (December 3, 2023) php 8.0 and 8.1 compatability =
 * Fixes php 8.0 and 8.1 compatability.
 
